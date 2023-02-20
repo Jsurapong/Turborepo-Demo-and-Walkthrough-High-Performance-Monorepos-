@@ -1,5 +1,5 @@
-import { Hero as HeroUI, CoinSection } from "ui";
-import crypto from "cryptocompare";
+import { Hero as HeroUI } from "ui";
+import crypto from "local";
 
 const Hero = () => {
   const [btc] = crypto.useGetCrypto({ sym: "BTC" });

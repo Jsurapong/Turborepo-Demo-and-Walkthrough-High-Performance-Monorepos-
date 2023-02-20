@@ -1,5 +1,5 @@
 import { CoinSection } from "ui";
-import crypto from "cryptocompare";
+import crypto from "local";
 
 const DogeSection = () => {
   const [doge] = crypto.useGetCrypto({ sym: "DOGE" });
