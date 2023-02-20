@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useGetCrypto } from "../hooks/useGetCrypto";
+import { useGetCrypto } from "local";
 
 import { Header, Hero, CoinSection } from "ui";
 

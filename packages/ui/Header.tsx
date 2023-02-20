@@ -11,6 +11,7 @@ export const Header = ({ menus }: HeaderProps) => {
       <div className="flex items-center justify-center space-x-4 md:space-x-10 md:absolute top-12 right-10">
         {menus?.map((menu) => (
           <a
+            key={menu.title}
             onClick={menu?.onClick ?? undefined}
             className="hover:text-accentCyan cursor-pointer"
           >
