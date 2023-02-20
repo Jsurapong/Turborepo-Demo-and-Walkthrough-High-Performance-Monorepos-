@@ -1,29 +1,41 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import { Button, Header, Hero, CoinSection } from "ui";
 
 export default function Web() {
   const [btc, setBtc] = useState(0);
   const [eth, setEth] = useState(0);
+  const [doge, setDoge] = useState(0);
 
   async function getBitcoinPrice() {
-    const response = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
+    const response = await axios(
+      "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
     );
-    const data = await response.json();
-    const price = data.bitcoin.usd;
+
+    const price = response.data.USD;
 
     setBtc(price);
   }
 
   async function getEthereumPrice() {
-    const response = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+    const response = await axios(
+      "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD"
     );
-    const data = await response.json();
-    const price = data.ethereum.usd;
+
+    const price = response.data.USD;
 
     setEth(price);
+  }
+
+  async function getDogeCoinPrice() {
+    const response = await axios(
+      "https://min-api.cryptocompare.com/data/price?fsym=DOGE&tsyms=USD"
+    );
+
+    const price = response.data.USD;
+
+    setDoge(price);
   }
 
   useEffect(() => {
@@ -37,9 +49,15 @@ export default function Web() {
       getEthereumPrice();
     }, 10000);
 
+    getDogeCoinPrice();
+    const interval3 = setInterval(() => {
+      getDogeCoinPrice();
+    }, 10000);
+
     return () => {
       clearInterval(interval);
       clearInterval(interval2);
+      clearInterval(interval3);
     };
   }, []);
 
@@ -69,7 +87,11 @@ export default function Web() {
       />
       <Hero image="./images/btc.png" title={`BTC : ${btc}`} />
       <CoinSection title={`ETH : ${eth}`} image="./images/eth.png" id="eth" />
-      <CoinSection title="DOGE" image="./images/doge.jpeg" id="doge" />
+      <CoinSection
+        title={`DOGE : ${doge}`}
+        image="./images/doge.jpeg"
+        id="doge"
+      />
     </>
   );
 }
