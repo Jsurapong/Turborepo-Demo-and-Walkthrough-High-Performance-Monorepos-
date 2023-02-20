@@ -4,7 +4,13 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "outputs": ["dist/**", ".next/**"],
+      "env": [
+        "COIN_PROVIDER",
+        "COIN_HERO_ENABLED",
+        "COIN_ETH_ENABLED",
+        "COIN_DOGE_ENABLED"
+      ]
     },
     "lint": {
       "outputs": []
