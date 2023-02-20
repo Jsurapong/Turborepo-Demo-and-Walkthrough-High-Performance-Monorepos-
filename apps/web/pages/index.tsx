@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import crypto from "local";
+import crypto from "cryptocompare";
 
 import { Header, Hero, CoinSection } from "ui";
 

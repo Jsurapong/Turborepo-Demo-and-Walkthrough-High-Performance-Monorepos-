@@ -11,7 +11,7 @@ export const useGetCrypto = ({ sym }: UseGetCryptoProps) => {
             `https://min-api.cryptocompare.com/data/price?fsym=${sym}&tsyms=USD`
         );
 
-        const price = response.data.usd ?? null;
+        const price = response.data.USD ?? null;
 
         setUsd(price);
     };
