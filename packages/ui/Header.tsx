@@ -1,5 +1,5 @@
 type HeaderProps = {
-  menus?: { title: string; onClick?: void }[];
+  menus?: { title: string; onClick?: () => void }[];
 };
 
 export const Header = ({ menus }: HeaderProps) => {
@@ -12,7 +12,7 @@ export const Header = ({ menus }: HeaderProps) => {
         {menus?.map((menu) => (
           <a
             onClick={menu?.onClick ?? undefined}
-            className="hover:text-accentCyan"
+            className="hover:text-accentCyan cursor-pointer"
           >
             {menu.title}
           </a>

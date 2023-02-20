@@ -1,11 +1,12 @@
 type CoinSectionProps = {
   image?: string;
   title: string;
+  id?: string;
 };
 
-export const CoinSection = ({ image, title }: CoinSectionProps) => {
+export const CoinSection = ({ image, title, id }: CoinSectionProps) => {
   return (
-    <section id="productive" className="bg-white dark:bg-darkBlue">
+    <section id={id} className="bg-white dark:bg-darkBlue">
       {/* <!-- Productive Container --> */}
       <div className="container flex flex-col items-center mx-auto px-6 pt-24 pb-32 md:flex-row md:space-x-16">
         {/* <!-- Image --> */}
