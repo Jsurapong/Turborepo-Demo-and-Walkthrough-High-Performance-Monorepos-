@@ -1,0 +1,8 @@
+{
+    "features": {
+      "hero": true,
+      "eth": true,
+      "doge": true
+    }
+  }
+  
