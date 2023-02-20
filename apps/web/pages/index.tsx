@@ -1,4 +1,3 @@
-import crypto from "cryptocompare";
 import Hero from "../components/Hero";
 import EthSection from "../components/EthSection";
 import DogeSection from "../components/DogeSection";
