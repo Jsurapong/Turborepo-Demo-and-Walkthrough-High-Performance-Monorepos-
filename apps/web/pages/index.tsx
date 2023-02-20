@@ -1,12 +1,10 @@
-import { Button, Header } from "ui";
+import { Button, Header, Hero } from "ui";
 
 export default function Web() {
   return (
     <>
       <Header />
-      <h1>Web</h1>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button />
+      <Hero image="./images/btc.png" title={"BTC price"} />
     </>
   );
 }
