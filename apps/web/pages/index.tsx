@@ -4,26 +4,43 @@ import { Button, Header, Hero, CoinSection } from "ui";
 
 export default function Web() {
   const [btc, setBtc] = useState(0);
+  const [eth, setEth] = useState(0);
 
   async function getBitcoinPrice() {
     const response = await fetch(
-      "https://api.coindesk.com/v1/bpi/currentprice/BTC.json"
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
     );
     const data = await response.json();
-    const price = data.bpi.USD.rate_float;
-    const time = new Date(data.time.updated).toLocaleTimeString();
+    const price = data.bitcoin.usd;
 
     setBtc(price);
-
-    console.log(`Time : ${time}`, `The current price of Bitcoin is: $${price}`);
   }
+
+  async function getEthereumPrice() {
+    const response = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+    );
+    const data = await response.json();
+    const price = data.ethereum.usd;
+
+    setEth(price);
+  }
+
   useEffect(() => {
     getBitcoinPrice();
     const interval = setInterval(() => {
       getBitcoinPrice();
     }, 10000);
 
-    return () => clearInterval(interval);
+    getEthereumPrice();
+    const interval2 = setInterval(() => {
+      getEthereumPrice();
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(interval2);
+    };
   }, []);
 
   return (
@@ -51,7 +68,7 @@ export default function Web() {
         ]}
       />
       <Hero image="./images/btc.png" title={`BTC : ${btc}`} />
-      <CoinSection title="ETH" image="./images/eth.png" id="eth" />
+      <CoinSection title={`ETH : ${eth}`} image="./images/eth.png" id="eth" />
       <CoinSection title="DOGE" image="./images/doge.jpeg" id="doge" />
     </>
   );
