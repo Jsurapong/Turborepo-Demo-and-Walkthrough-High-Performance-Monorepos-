@@ -1,6 +1,8 @@
 {
   "name": "coin",
   "version": "0.1.0",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3002",

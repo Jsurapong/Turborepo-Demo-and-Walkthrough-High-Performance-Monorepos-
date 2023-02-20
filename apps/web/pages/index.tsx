@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { useGetCrypto } from "local";
+import crypto from "local";
 
 import { Header, Hero, CoinSection } from "ui";
 
 export default function Web() {
-  const [btc] = useGetCrypto({ sym: "BTC" });
-  const [eth] = useGetCrypto({ sym: "ETH" });
-  const [doge] = useGetCrypto({ sym: "DOGE" });
+  const [btc] = crypto.useGetCrypto({ sym: "BTC" });
+  const [eth] = crypto.useGetCrypto({ sym: "ETH" });
+  const [doge] = crypto.useGetCrypto({ sym: "DOGE" });
 
   return (
     <>

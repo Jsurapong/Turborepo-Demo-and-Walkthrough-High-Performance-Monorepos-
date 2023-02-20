@@ -8,7 +8,7 @@ export const useGetCrypto = ({ sym }: UseGetCryptoProps) => {
 
     const fetch = async () => {
         const response = await axios(
-            `http://localhost:3003/api/price?sym=${sym}`,
+            `https://min-api.cryptocompare.com/data/price?fsym=${sym}&tsyms=USD`
         );
 
         const price = response.data.usd ?? null;
