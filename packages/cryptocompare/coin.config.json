@@ -2,7 +2,7 @@
     "features": {
       "hero": true,
       "eth": true,
-      "doge": false
+      "doge": true
     }
   }
   

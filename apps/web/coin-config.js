@@ -15,7 +15,7 @@ const PROVIDERS = [
 
 function getProviderName() {
     return (
-        process.env.COMMERCE_PROVIDER || 'local'
+        process.env.COINE_PROVIDER || 'local'
     )
 }
 
