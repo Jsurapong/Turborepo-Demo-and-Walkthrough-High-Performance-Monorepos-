@@ -1,5 +1,5 @@
 import { Hero as HeroUI } from "ui";
-import crypto from "local";
+import crypto from "@framework";
 
 const Hero = () => {
   const [btc] = crypto.useGetCrypto({ sym: "BTC" });

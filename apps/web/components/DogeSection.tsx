@@ -1,5 +1,5 @@
 import { CoinSection } from "ui";
-import crypto from "local";
+import crypto from "@framework";
 
 const DogeSection = () => {
   const [doge] = crypto.useGetCrypto({ sym: "DOGE" });

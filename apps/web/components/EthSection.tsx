@@ -1,5 +1,5 @@
 import { CoinSection } from "ui";
-import crypto from "local";
+import crypto from "@framework";
 
 const EthSection = () => {
   const [eth] = crypto.useGetCrypto({ sym: "ETH" });
